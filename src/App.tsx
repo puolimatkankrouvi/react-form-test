@@ -1,11 +1,11 @@
 import './App.css'
-import UserName from './components/UserName'
+import LoginForm from './components/LoginForm'
 
 function App() {
 
   return (
     <>
-      <UserName />
+      <LoginForm />
     </>
   )
 }
