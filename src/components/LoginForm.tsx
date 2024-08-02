@@ -2,7 +2,7 @@ import { use, useActionState, useOptimistic } from "react";
 import { login } from "../apiCalls";
 import { ILoginInfo } from "../interfaces/loginInfo";
 import LoginButton from "./LoginButton";
-import { ThemeContext } from "../contexts/ThemeContext";
+import { ThemeContext } from "../contexts/ThemeProvider";
 
 export default function LoginForm() {
     const [loginText, setLoginText] = useOptimistic("Login");
