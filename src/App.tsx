@@ -1,6 +1,6 @@
 import './App.css'
 import LoginForm from './components/LoginForm'
-import { ThemeContext } from './interfaces/ThemeContext'
+import { ThemeContext } from './contexts/ThemeContext'
 
 function App() {
 
