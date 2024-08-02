@@ -1,11 +1,14 @@
-import { useActionState } from "react";
+import { useActionState, useOptimistic } from "react";
 import { login } from "../apiCalls";
 import { ILoginInfo } from "../interfaces/loginInfo";
 import LoginButton from "./LoginButton";
 
 export default function LoginForm() {
+    const [loginText, setLoginText] = useOptimistic("Login");
+
     const [error, submitAction, ] = useActionState(
         async (previousState, formData: FormData) => {
+            setLoginText("Logging in");
             const loginInfo: ILoginInfo =
             {
               username: formData.get("username")?.toString(),
@@ -20,6 +23,7 @@ export default function LoginForm() {
 
     return (
         <form action={submitAction}>
+          {loginText}
           <input type="text" name="username" />
           <input type="password" name="password" />
           <LoginButton />
