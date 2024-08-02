@@ -31,7 +31,7 @@ export default function LoginForm() {
           <input type="password" name="password" />
           <LoginButton />
           {error && <p>{error}</p>}
-          <p>Theme: {theme}</p>
+          <p>Context value: {theme}</p>
       </form>
     );
 }
