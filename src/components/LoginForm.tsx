@@ -1,16 +1,13 @@
-import { use, useActionState, useOptimistic } from "react";
+import { useActionState, useOptimistic } from "react";
 import { login } from "../apiCalls";
 import { ILoginInfo } from "../interfaces/loginInfo";
 import LoginButton from "./LoginButton";
-import { ThemeContext } from "../contexts/ThemeProvider";
 
 export default function LoginForm() {
     const [loginText, setLoginText] = useOptimistic("Login");
-    
-    const theme = use(ThemeContext);
 
     const [error, submitAction, ] = useActionState(
-        async (previousState, formData: FormData) => {
+        async (_previousState: string | null, formData: FormData) => {
             setLoginText("Logging in");
             const loginInfo: ILoginInfo =
             {
@@ -31,7 +28,6 @@ export default function LoginForm() {
           <input type="password" name="password" />
           <LoginButton />
           {error && <p>{error}</p>}
-          <p>Context value: {theme}</p>
       </form>
     );
 }

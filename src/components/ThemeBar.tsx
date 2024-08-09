@@ -1,8 +1,8 @@
-import { use } from "react";
-import ThemeContext from "../contexts/ThemeProvider";
+import { useContext } from "react";
+import { ThemeContext } from "../App";
 
 export default function ThemeBar() {
-    const themeContext = use(ThemeContext);
+    const themeContext = useContext(ThemeContext);
 
     return <nav>
         <button onClick={themeContext!.toggleTheme}>{themeContext!.theme}</button>

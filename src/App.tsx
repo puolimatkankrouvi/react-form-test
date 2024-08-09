@@ -5,7 +5,8 @@ import LoginForm from './components/LoginForm'
 import ThemeBar from './components/ThemeBar'
 import { Theme } from './interfaces/theme'
 import { IThemeContextValue } from './interfaces/themeContextValue'
-import ThemeContext from './contexts/ThemeProvider'
+
+export const ThemeContext = createContext<IThemeContextValue | null>(null);
 
 function App() {
   const [theme, setTheme] = useState<Theme>("light");
@@ -15,7 +16,7 @@ function App() {
 
   return (
     <ThemeContext.Provider
-      value={{theme, toggleTheme}}
+      value={{ theme, toggleTheme }}
     >
       <HeadTags />
       <ThemeBar />
