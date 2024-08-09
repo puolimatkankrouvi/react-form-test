@@ -6,10 +6,15 @@ import ThemeBar from './components/ThemeBar'
 import { Theme } from './interfaces/theme'
 import { IThemeContextValue } from './interfaces/themeContextValue'
 
-export const ThemeContext = createContext<IThemeContextValue | null>(null);
+const defaultTheme = "light";
+
+export const ThemeContext = createContext<IThemeContextValue>({
+  theme: defaultTheme,
+  toggleTheme() {},
+});
 
 function App() {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>(defaultTheme);
   function toggleTheme() {
     setTheme(theme => theme == "dark" ? "light" : "dark");
   }
